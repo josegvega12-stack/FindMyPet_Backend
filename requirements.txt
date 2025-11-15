@@ -1,0 +1,9 @@
+fastapi
+uvicorn[standard]
+python-dotenv
+motor
+python-multipart
+passlib[bcrypt]
+python-jose[cryptography]
+Pillow
+numpy
