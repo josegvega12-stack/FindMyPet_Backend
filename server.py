@@ -141,7 +141,8 @@ async def register_user(payload: UserCreate):
     }
     res = await users_col.insert_one(doc)
     created = await users_col.find_one({"_id": res.inserted_id})
-    return to_user_response(created)
+    return {"message": "Usuario creado correctamente"}
+
 
 # 2) Login: devuelve JWT
 @api_router.post("/users/login", tags=["users"])
