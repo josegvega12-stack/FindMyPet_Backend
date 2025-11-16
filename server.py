@@ -17,11 +17,19 @@ from auth import hash_password, verify_password, create_access_token, verify_tok
 from image_processing import simple_embedding, extract_colors_from_base64
 from matching import matcher, process_sighting_matches
 from utils import load_grid_cell
+from dotenv import load_dotenv
+from pathlib import Path
+import os
+import motor.motor_asyncio
 
-# Solo cargar .env si existe (LOCAL), en producción Render ignora esto
+# Ruta base del proyecto
+ROOT_DIR = Path(__file__).parent
+
+# Solo cargar .env si existe (LOCAL). En Render se usan las Environment Variables.
 dotenv_path = ROOT_DIR / ".env"
 if dotenv_path.exists():
     load_dotenv(dotenv_path)
+
 
 
 from dotenv import load_dotenv
