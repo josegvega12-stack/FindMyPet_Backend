@@ -16,10 +16,13 @@ from models import (
 from auth import hash_password, verify_password, create_access_token, verify_token
 from image_processing import simple_embedding, extract_colors_from_base64
 from matching import matcher, process_sighting_matches
-from utils import grid_cell
+from utils import load_grid_cell
 
-ROOT_DIR = Path(__file__).parent
-load_dotenv(ROOT_DIR / '.env')
+# Solo cargar .env si existe (LOCAL), en producción Render ignora esto
+dotenv_path = ROOT_DIR / ".env"
+if dotenv_path.exists():
+    load_dotenv(dotenv_path)
+
 
 from dotenv import load_dotenv
 import os
